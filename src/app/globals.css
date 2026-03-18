@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #06111f;
+    color: white;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: white !important;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: white !important;
+}
+
+/* hero section */
+
+.hero-featured-slider {
+    width: 100%;
+    min-width: 0;
+}
+
+.hero-featured-slider .swiper-wrapper {
+    align-items: stretch;
+}
+
+.hero-featured-slider .swiper-slide {
+    width: 100%;
+    min-width: 0;
+}
+
+.hero-featured-slider .swiper-pagination {
+    bottom: 10px !important;
+}
+
+.hero-featured-slider .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1 !important;
+}
+
+.hero-featured-slider .swiper-pagination-bullet-active {
+    background: white !important;
+}
+
+/* testimonials */
+
+.testimonials-slider {
+    padding-bottom: 0;
+}
+
+.testimonials-slider .swiper-slide {
+    height: auto;
+}
+
+.testimonials-progressbar .swiper-pagination-bullet {
+    width: 36px !important;
+    height: 8px !important;
+    border-radius: 9999px !important;
+    background: rgba(255, 255, 255, 0.14) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 1 !important;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.testimonials-progressbar .swiper-pagination-bullet-active {
+    width: 60px !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
