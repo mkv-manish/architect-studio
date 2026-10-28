@@ -1,106 +1,87 @@
 import Link from "next/link";
+import { ArrowUpRight, Building2 } from "lucide-react";
 import Container from "@/components/common/Container";
+import { navigation, consultationLink } from "@/lib/navigation";
 import { siteConfig } from "@/lib/constants";
-import { Building2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-
-const footerLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Projects", href: "/projects" },
-    { label: "Contact", href: "/contact" },
-];
 
 export default function Footer() {
-    return (
-        <footer className="mt-12 border-t border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02]">
-            <Container>
-                <div className="grid gap-8 py-10 md:grid-cols-2 xl:grid-cols-4">
-                    <div className="xl:col-span-2">
-                        <div className="flex items-center gap-3">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl">
-                                <Building2 className="h-6 w-6" />
-                            </div>
-                            <div>
-                                <p className="text-lg font-semibold tracking-wide text-white">
-                                    {siteConfig.name}
-                                </p>
-                                <p className="text-sm text-white/55">
-                                    Home • Building • Blueprint Experts
-                                </p>
-                            </div>
-                        </div>
+  return (
+    <footer className="border-t border-white/10 bg-black/15">
+      <Container>
+        <div className="grid gap-7 py-8 sm:grid-cols-2 sm:gap-8 lg:grid-cols-[1.15fr_1.15fr_1fr] lg:items-start lg:gap-8 lg:py-8 xl:gap-12">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-3">
+              <Building2
+                className="shrink-0 text-[#dfc39c]"
+                size={26}
+                aria-hidden="true"
+              />
+              <p className="text-base font-semibold tracking-wide">
+                {siteConfig.name}
+              </p>
+            </div>
+            <p className="mt-3 max-w-sm text-sm leading-6 text-white/55">
+              Thoughtful homes. Distinctive buildings. Practical plans that
+              bring your ideas into focus.
+            </p>
+            <p className="mt-4 text-[10px] uppercase tracking-[0.16em] text-[#dfc39c]">
+              Based in Giridih · Jharkhand
+            </p>
+          </div>
 
-                        <p className="mt-5 max-w-xl text-sm leading-7 text-white/65">
-                            Premium home design, building planning, front
-                            elevation aur blueprint services with modern
-                            presentation and practical execution clarity.
-                        </p>
+          <div>
+            <h2 className="eyebrow">Explore</h2>
+            <nav
+              aria-label="Footer navigation"
+              className="mt-3 grid grid-cols-2 gap-x-5 sm:flex sm:flex-col sm:items-start lg:grid lg:grid-cols-2 lg:gap-x-6"
+            >
+              {[...navigation, consultationLink].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="inline-flex min-h-9 items-center py-1 text-xs leading-5 text-white/65 transition hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
 
-                        <div className="mt-6 flex flex-wrap gap-3">
-                            <a
-                                href={`tel:${siteConfig.phoneRaw}`}
-                                className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2 text-sm text-white/80 transition hover:bg-white/15"
-                            >
-                                <Phone className="h-4 w-4" /> {siteConfig.phone}
-                            </a>
-                            <a
-                                href={`https://wa.me/${siteConfig.whatsapp}`}
-                                target="_blank"
-                                className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-4 py-2 text-sm text-white/80 transition hover:bg-white/15"
-                            >
-                                <MessageCircle className="h-4 w-4" /> WhatsApp
-                            </a>
-                        </div>
-                    </div>
+          <div>
+            <h2 className="eyebrow">Start a conversation</h2>
+            <div className="mt-3 flex flex-col items-start gap-1 text-xs text-white/65">
+              <a
+                href={`tel:${siteConfig.phoneRaw}`}
+                className="inline-flex min-h-9 items-center py-1 transition hover:text-white"
+              >
+                {siteConfig.phone}
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="inline-flex min-h-9 items-center break-all py-1 transition hover:text-white"
+              >
+                {siteConfig.email}
+              </a>
+              <a
+                href={`https://wa.me/${siteConfig.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-9 items-center gap-2 py-1 text-[#dfc39c] transition hover:text-[#eddbc2]"
+              >
+                Message on WhatsApp{" "}
+                <ArrowUpRight size={14} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
 
-                    <div>
-                        <h3 className="text-base font-semibold text-white">
-                            Quick Links
-                        </h3>
-                        <div className="mt-4 flex flex-col gap-3 text-sm text-white/65">
-                            {footerLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className="transition hover:text-white"
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 className="text-base font-semibold text-white">
-                            Contact Info
-                        </h3>
-                        <div className="mt-4 space-y-3 text-sm text-white/65">
-                            <div className="flex items-start gap-3">
-                                <Phone className="mt-0.5 h-4 w-4 shrink-0" />
-                                <span>{siteConfig.phone}</span>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <Mail className="mt-0.5 h-4 w-4 shrink-0" />
-                                <span className="break-all">
-                                    {siteConfig.email}
-                                </span>
-                            </div>
-                            <div className="flex items-start gap-3">
-                                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                                <span>{siteConfig.address}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="flex flex-col gap-3 border-t border-white/10 py-5 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
-                    <p>© 2026 {siteConfig.name}. All rights reserved.</p>
-                    <p className="text-white/60">
-                        Design & Devlop by Manish Kumar
-                    </p>
-                </div>
-            </Container>
-        </footer>
-    );
+        <div className="flex flex-col justify-between gap-1.5 border-t border-white/10 py-4 pr-14 text-[10px] leading-5 text-white/40 sm:flex-row sm:gap-5 md:pr-0">
+          <p>
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
+          <p>Designed & developed by Manish Kumar</p>
+        </div>
+      </Container>
+    </footer>
+  );
 }

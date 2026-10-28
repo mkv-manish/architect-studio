@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BTC Design Studio
 
-## Getting Started
+A responsive architecture portfolio and WhatsApp enquiry website built with Next.js App Router, React, TypeScript, Tailwind CSS, and Zod.
 
-First, run the development server:
+## Development
 
-```bash
+Requires Node.js 20.9 or newer and npm.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Run `npm run lint` and `npm run build` before release. `npm start` serves the production build.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/
+  app/
+    (site)/           Public pages and shared navigation/footer layout
+      projects/       Portfolio index and statically generated project details
+      services/       Services index and four service-detail pages
+      process/        Four-step design workflow
+      faq/            Grouped questions about design and consultations
+      consultation/   Dedicated consultation request form
+    globals.css       Theme, shared styles, focus states, reduced motion
+    layout.tsx        Root HTML and metadata base
+    robots.ts         Robots metadata
+    sitemap.ts        Page and project URLs
+  components/
+    common/           Shared buttons, headings, container, service grid
+    forms/            Unified enquiry and consultation form
+    home/             Homepage sections
+    layout/           Header, footer, shared navigation links, mobile menu
+    projects/         Project cards and accessible manual gallery
+  data/               Projects, services, process, FAQ, testimonials
+  lib/                Site details, navigation, metadata, enquiry validation
+  types/              Project types
+public/projects/      Optimized WebP assets, maximum 1600px on the long edge
+```
 
-## Learn More
+The `(site)` route group shares the site shell without changing public URLs. Business details are maintained in `src/lib/constants.ts`; shared content lives in `src/data/`.
 
-To learn more about Next.js, take a look at the following resources:
+## SEO and production domain
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The temporary domain is `https://btcdesignstudio.example`, a reserved dummy address. Copy `.env.example` to `.env.local` and replace `NEXT_PUBLIC_SITE_URL` with the real public HTTPS origin before deployment. Restart development or rebuild production after changing it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All pages have unique titles, descriptions, canonical URLs, Open Graph and Twitter metadata. `/opengraph-image` generates a branded 1200×630 share card. Project pages include design imagery, and the sitemap lists every public page with project image URLs.
 
-## Deploy on Vercel
+JSON-LD describes the studio and website using existing business details. Detail pages add breadcrumbs and Service or CreativeWork entities. No ratings, opening hours, street address, or credentials are invented.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The dummy domain and localhost are intentionally `noindex` with crawling blocked. Configuring a real public domain enables indexing and crawling automatically. Before launch, check `/robots.txt`, `/sitemap.xml`, and canonical tags; submit the real sitemap in Google Search Console. Set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` if an HTML verification tag is required.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Implementation references: [Next.js metadata](https://nextjs.org/docs/app/getting-started/metadata-and-og-images) and [Google business structured data](https://developers.google.com/search/docs/appearance/structured-data/local-business).
+
+## Enquiries
+
+The contact page switches between a project enquiry and a consultation request. Zod validates the form and a user action opens a prefilled WhatsApp message. A manual WhatsApp link remains available if the popup is blocked. Visitors must send the message themselves. A consultation date is a preference, not a confirmed booking.
+
+There is no server-side lead storage, email delivery, or appointment scheduler. Unused API stubs were removed because they previously logged personal data and reported success without delivering anything.
+
+## Content and assets
+
+Update project descriptions, locations, images, and slugs in `src/data/projects.ts`. Each unique WebP is stored once and can be referenced by more than one project. Gallery images keep their original aspect ratio; cover images crop to fit cards.
+
+Before launch, verify the business contact details, portfolio attribution, and existing testimonials with the studio. The site uses a local system font stack and does not require remote font downloads.
+
+The homepage uses a light portfolio theme with a full-width architectural hero, studio introduction, selected projects, services, and process overview. Navigation and the sitemap include the new pages.

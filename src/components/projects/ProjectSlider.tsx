@@ -1,38 +1,40 @@
 "use client";
-
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-
-interface ProjectSliderProps {
-    images: string[];
-    title: string;
-}
-export default function ProjectSlider({ images, title }: ProjectSliderProps) {
-    return (
-        <div className="overflow-hidden rounded-[24px] border border-white/10">
-            <Swiper
-                modules={[Autoplay, Navigation, Pagination]}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                autoplay={{ delay: 2500, disableOnInteraction: false }}
-                loop
-                className="h-[280px] w-full"
-            >
-                {images.map((image, index) => (
-                    <SwiperSlide key={`${title}-${index}`}>
-                        <div className="relative h-[280px] w-full bg-white/5">
-                            <Image
-                                src={image}
-                                alt={`${title} ${index + 1}`}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
-    );
+import { A11y, Keyboard, Navigation, Pagination } from "swiper/modules";
+export default function ProjectSlider({
+  images,
+  title,
+}: {
+  images: string[];
+  title: string;
+}) {
+  return (
+    <div className="min-w-0 overflow-hidden rounded-sm border border-white/10">
+      <Swiper
+        modules={[A11y, Keyboard, Navigation, Pagination]}
+        slidesPerView={1}
+        navigation={images.length > 1}
+        pagination={images.length > 1 ? { clickable: true } : false}
+        keyboard={{ enabled: true, onlyInViewport: true }}
+        a11y={{ enabled: true }}
+        className="w-full"
+      >
+        {images.map((image, index) => (
+          <SwiperSlide key={image}>
+            <div className="relative aspect-[4/3] w-full bg-white/[0.03]">
+              <Image
+                src={image}
+                alt={`${title}, design view ${index + 1}`}
+                fill
+                priority={index === 0}
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-contain"
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
 }

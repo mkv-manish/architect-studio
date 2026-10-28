@@ -1,41 +1,29 @@
+import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/common/Container";
-import PrimaryButton from "@/components/common/PrimaryButton";
-import SecondaryButton from "@/components/common/SecondaryButton";
-import { siteConfig } from "@/lib/constants";
-
+import ButtonLink from "@/components/common/ButtonLink";
 export default function ContactCTA() {
-    return (
-        <section className="py-12 lg:py-16">
-            <Container>
-                <div className="rounded-[34px] border border-white/10 bg-white/10 p-8 backdrop-blur-2xl lg:p-10">
-                    <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                        <div className="max-w-2xl">
-                            <p className="mb-3 text-sm uppercase tracking-[0.28em] text-white/50">
-                                Start Now
-                            </p>
-                            <h2 className="text-3xl font-semibold sm:text-4xl">
-                                Ready To Discuss Your Project?
-                            </h2>
-                            <p className="mt-4 text-white/65">
-                                WhatsApp, call ya detailed enquiry form ke
-                                through humse turant contact karein.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-wrap gap-4">
-                            <PrimaryButton href="/contact">
-                                Send Enquiry
-                            </PrimaryButton>
-                            <SecondaryButton
-                                href={`https://wa.me/${siteConfig.whatsapp}`}
-                                target="_blank"
-                            >
-                                WhatsApp Now
-                            </SecondaryButton>
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        </section>
-    );
+  return (
+    <section className="py-5">
+      <Container>
+        <div className="flex flex-col justify-between gap-6 rounded-lg border border-[var(--line)] bg-[var(--panel)] p-6 sm:p-8 lg:flex-row lg:items-center">
+          <div className="max-w-xl">
+            <p className="eyebrow mb-3">Have a project in mind?</p>
+            <h2 className="section-title">
+              Let’s find the right starting point.
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+              Share your plot, priorities, and ideas. We’ll talk through what
+              comes next.
+            </p>
+          </div>
+          <ButtonLink
+            href="/consultation"
+            className="shrink-0 self-start lg:self-center"
+          >
+            Request a consultation <ArrowUpRight size={17} />
+          </ButtonLink>
+        </div>
+      </Container>
+    </section>
+  );
 }

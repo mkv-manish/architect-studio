@@ -10,11 +10,11 @@ export const projects: ProjectItem[] = [
       "Modern villa concept with premium elevation, open balcony styling and spacious floor planning.",
     location: "Giridih",
     images: [
-      "/projects/villa-1.png",
-      "/projects/villa-2.png",
-      "/projects/villa-3.png",
-      "/projects/villa-4.png",
-      "/projects/villa-5.png",
+      "/projects/villa-1.webp",
+      "/projects/shared-residence.webp",
+      "/projects/villa-3.webp",
+      "/projects/villa-4.webp",
+      "/projects/villa-5.webp",
     ],
     highlights: [
       "Premium front elevation",
@@ -32,11 +32,9 @@ export const projects: ProjectItem[] = [
       "Balanced duplex layout with clean front elevation, parking space and efficient room planning.",
     location: "Ranchi",
     images: [
-      "/projects/duplex-5.png",
-      "/projects/duplex-2.png",
-      "/projects/duplex-1.png",
-      "/projects/duplex-5.png",
-      "/projects/duplex-2.png",
+      "/projects/duplex-5.webp",
+      "/projects/duplex-2.webp",
+      "/projects/duplex-1.webp",
     ],
     highlights: [
       "Smart floor distribution",
@@ -54,11 +52,11 @@ export const projects: ProjectItem[] = [
       "Professional commercial layout with optimized frontage and practical utility distribution.",
     location: "Delhi",
     images: [
-      "/projects/commercial-1.png",
-      "/projects/commercial-2.png",
-      "/projects/commercial-3.png",
-      "/projects/commercial-4.png",
-      "/projects/commercial-5.png",
+      "/projects/commercial-1.webp",
+      "/projects/commercial-2.webp",
+      "/projects/commercial-3.webp",
+      "/projects/commercial-4.webp",
+      "/projects/shared-residence.webp",
     ],
     highlights: [
       "Business-friendly layout",
@@ -76,10 +74,9 @@ export const projects: ProjectItem[] = [
       "Compact home planning focused on smart space utilization and clean room zoning.",
     location: "Gaya",
     images: [
-      "/projects/blueprint-1.png",
-      "/projects/blueprint-2.png",
-      "/projects/blueprint-3.png",
-      "/projects/blueprint-4.png",
+      "/projects/blueprint-1.webp",
+      "/projects/blueprint-2.webp",
+      "/projects/blueprint-3.webp",
     ],
     highlights: [
       "Compact planning",
@@ -97,11 +94,9 @@ export const projects: ProjectItem[] = [
       "Luxury exterior styling with modern textures, glass detailing and elegant visual balance.",
     location: "Lucknow",
     images: [
-      "/projects/elevation-1.png",
-      "/projects/elevation-2.png",
-      "/projects/elevation-3.png",
-      "/projects/elevation-1.png",
-      "/projects/elevation-2.png",
+      "/projects/elevation-1.webp",
+      "/projects/elevation-2.webp",
+      "/projects/elevation-3.webp",
     ],
     highlights: [
       "Luxury facade",

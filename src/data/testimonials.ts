@@ -33,5 +33,5 @@ export const testimonials = [
     location: "Mumbai",
     quote:
       "Blueprint aur elevation dono bahut detailed the. Design se execution tak support mila.",
-  }
+  },
 ];

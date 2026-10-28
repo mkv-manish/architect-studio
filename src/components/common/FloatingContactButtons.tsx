@@ -1,30 +1,27 @@
-import Link from "next/link";
 import { MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "@/lib/constants";
-
 export default function FloatingContactButtons() {
-    const whatsappText = encodeURIComponent(
-        "Namaste, mujhe home/building design aur blueprint ke liye enquiry karni hai.",
-    );
-
-    return (
-        <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
-            <Link
-                href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappText}`}
-                target="_blank"
-                className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-slate-900 shadow-2xl transition hover:scale-105"
-                aria-label="WhatsApp"
-            >
-                <MessageCircle className="h-6 w-6" />
-            </Link>
-
-            <Link
-                href={`tel:${siteConfig.phoneRaw}`}
-                className="flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur-xl transition hover:scale-105"
-                aria-label="Call"
-            >
-                <Phone className="h-6 w-6" />
-            </Link>
-        </div>
-    );
+  return (
+    <nav
+      aria-label="Quick contact"
+      className="mobile-contact-dock fixed right-3 z-40 flex flex-col items-center gap-2.5 md:hidden"
+    >
+      <a
+        href={`tel:${siteConfig.phoneRaw}`}
+        aria-label="Call BTC Design Studio"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-[#0c1b25]/95 text-white/90 shadow-lg backdrop-blur-xl transition hover:bg-[#1a303e]"
+      >
+        <Phone size={20} aria-hidden="true" />
+      </a>
+      <a
+        href={`https://wa.me/${siteConfig.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contact BTC Design Studio on WhatsApp"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#dfc39c] bg-[#dfc39c] text-[#08131c] shadow-lg transition hover:bg-[#eddbc2]"
+      >
+        <MessageCircle size={22} aria-hidden="true" />
+      </a>
+    </nav>
+  );
 }
